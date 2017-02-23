@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <f:facet name="first">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />		
+
+            <title>primestrap</title>
+        </f:facet>
+
+        <f:facet name="middle">
+            <h:outputStylesheet name="bootstrap/css/bootstrap.css" />
+            <h:outputStylesheet name="css/main.css" />
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />
+            <h:outputScript name="bootstrap/js/bootstrap.js" />
+        </f:facet>
+
+        <f:facet name="last">
+
+        </f:facet>
+
+    </h:head>
+    <h:body>
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+                <f:view>
+                    <h:dataTable value="#{studentListView.getStudentList()}" var="student"
+                                 styleClass="table-striped student-table"
+                                 >
+                        <h:column>
+                            <f:facet name="header">ID</f:facet>
+                                #{student.id}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">First name</f:facet>
+                                #{student.firstName}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Last name</f:facet>
+                                #{student.lastName}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Faculty</f:facet>
+                                #{student.faculty}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Action</f:facet>
+                            <h:link value="View Detail" outcome="student?id=#{student.id}"/>
+                        </h:column>
+                    </h:dataTable>
+                </f:view>
+            </div>
+        </div>
+
+    </h:body>
+
+</html>
